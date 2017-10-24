@@ -19,10 +19,16 @@ class TweetWall extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.newTweets.length > 0) {
-      const allTweets = nextProps.newTweets.concat(this.state.tweets)
-      this.setState({tweets: allTweets})
-    }
+    this.setState({
+      tweets: [
+        ...nextProps.newTweets,
+        ...this.state.tweets
+      ]
+    });
+    // if (nextProps.newTweets.length > 0) {
+    //   const allTweets = nextProps.newTweets.concat(this.state.tweets)
+    //   this.setState({tweets: allTweets})
+    // }
   }
 
   render() {
